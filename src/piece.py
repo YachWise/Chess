@@ -9,7 +9,7 @@ class Piece:
         self.texture = texture
         self.set_texture()
         self.texture_rect = texture_rect
-        
+
     def set_texture(self):
         pass
 
@@ -33,6 +33,6 @@ class Rook(Piece):
 class Queen(Piece):
     def __init(self, color):
         super().__init__('queen', color, 9.0)
-class king(Piece):
+class King(Piece):
     def __init(self, color):
         super().__init__('king', color, 1000000) 
