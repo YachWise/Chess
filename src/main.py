@@ -32,10 +32,16 @@ class Main:
                     clicked_col = dragger.mouseX // SQSIZE
             
                     if board.squares[clicked_row][clicked_col].has_piece():
-                        print("yes")
+                        piece = board.squares[clicked_row][clicked_col].piece
+                        print(piece)
+                        #save position if the user clicked on a piece
+                        dragger.start_pos(event.pos)
+                        dragger.drag_piece(piece)
                 #user moved mouse
                 elif event.type == pygame.MOUSEMOTION:
-                    pass
+                    if dragger.dragging:
+                        dragger.update_blit(screen)
+
                 #user let go of MB1
                 elif event.type == pygame.MOUSEBUTTONUP:
                     pass
