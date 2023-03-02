@@ -40,11 +40,12 @@ class Main:
                 #user moved mouse
                 elif event.type == pygame.MOUSEMOTION:
                     if dragger.dragging:
+                        dragger.update_mouse(event.pos)
                         dragger.update_blit(screen)
 
                 #user let go of MB1
                 elif event.type == pygame.MOUSEBUTTONUP:
-                    pass
+                    dragger.undrag_piece()
 
                 #user pressed x in top right
                 elif event.type == pygame.QUIT:
