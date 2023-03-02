@@ -21,6 +21,9 @@ class Main:
             game.show_bg(screen)
             game.show_pieces(screen)
             
+            if dragger.dragging:
+                dragger.update_blit(screen)
+            
             for event in pygame.event.get():
 
                 #user clicked
