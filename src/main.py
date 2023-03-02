@@ -19,6 +19,7 @@ class Main:
         board = self.game.board
         while True:
             game.show_bg(screen)
+            game.show_moves(screen)
             game.show_pieces(screen)
             
             if dragger.dragging:
@@ -36,14 +37,23 @@ class Main:
             
                     if board.squares[clicked_row][clicked_col].has_piece():
                         piece = board.squares[clicked_row][clicked_col].piece
+                        board.calc_moves(piece, clicked_row, clicked_col)
                         print(piece)
                         #save position if the user clicked on a piece
                         dragger.start_pos(event.pos)
                         dragger.drag_piece(piece)
+
+                        game.show_bg(screen)
+                        game.show_moves(screen)
+                        game.show_pieces(screen)
+
                 #user moved mouse
                 elif event.type == pygame.MOUSEMOTION:
                     if dragger.dragging:
                         dragger.update_mouse(event.pos)
+                        game.show_bg(screen)
+                        game.show_moves(screen)
+                        game.show_pieces(screen)
                         dragger.update_blit(screen)
 
                 #user let go of MB1
