@@ -4,12 +4,16 @@ class Square:
         self.row = row
         self.col = col
         self.piece = piece
-        
+
+    def __eq__(self, other):
+        return self.row == other.row and self.col == other.col
+
+
     def has_piece(self):
         return self.piece != None
     
     def isEmpty(self):
-        return self.has_piece()
+        return not self.has_piece()
     
     def has_team(self, color):
         return self.has_piece() and self.piece.color == color
