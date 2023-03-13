@@ -11,7 +11,6 @@ class Board:
         self._add_pieces('white')
         self._add_pieces('black')
         self.last_move = None
-        self.calculator = 0
     #_ to denote private methods
     def valid_moves(self, piece, move):
         return move in piece.moves
